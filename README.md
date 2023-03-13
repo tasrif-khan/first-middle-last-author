@@ -13,3 +13,6 @@ The CSV name needs to be formatted in such a way: LastName FirstInitial MiddleIn
 If no middle name, omit it from the name.
 
 Put each CSV in a folder and select it within the program. The tally for each CSV will be outputted into a singular file in a location you choose.
+
+
+Requires NetCore 3.1 https://dotnet.microsoft.com/en-us/download/dotnet/3.1

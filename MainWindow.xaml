@@ -1,0 +1,146 @@
+﻿<Window x:Class="Research_Author_Publication_Data.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Research_Author_Publication_Data"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        
+        <Grid Margin="0 10 0 0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 0 -->
+            <TextBlock Text="Directory"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
+                       Grid.Column="0"></TextBlock>
+
+            <TextBox materialDesign:HintAssist.Hint="Select Input Directory"
+                     Grid.Column="1"
+                     Margin="0,5,0,5"
+                     Text="{Binding DirectoryPath}"
+                     IsReadOnly="True" />
+
+            <Button Content="Select"
+                    Width="90"
+                    Grid.Column="2"
+                    Command="{Binding SelectDirectoryCommand}"
+                    Margin="10 0 10 0" />
+        </Grid>
+
+        <Grid Margin="0 5 0 0"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 0 -->
+            <TextBlock Text="Output File"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
+                       Grid.Column="0"></TextBlock>
+
+            <TextBox materialDesign:HintAssist.Hint="Select Output File Path"
+                     Grid.Column="1"
+                     Margin="0,5,0,5"
+                     Text="{Binding OutputFilePath}"
+                     IsReadOnly="True" />
+
+            <Button Content="Select"
+                    Width="90"
+                    Grid.Column="2"
+                    Command="{Binding SelectOutputFileCommand}"
+                    Margin="10 0 10 0" />
+        </Grid>
+
+        <Grid Margin="0 5 0 0"
+              Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 0 -->
+            <TextBlock Text="Header"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
+                       Grid.Column="0"></TextBlock>
+
+            <CheckBox materialDesign:HintAssist.Hint="Select Input Directory"
+                     Grid.Column="1"
+                     Margin="0,5,0,5"
+                     IsChecked="{Binding HasHeader}"
+                     Content="Has Header Row" />
+        </Grid>
+
+
+        <Grid Margin="0 8 0 0"
+              Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                <Button Content="Start"
+                        Width="90"
+                        Grid.Column="2"
+                        Command="{Binding StartCommand}"
+                        Margin="0 0 5 0" />
+
+
+                <Button Content="Stop"
+                        Width="90"
+                        Grid.Column="2"
+                        Command="{Binding StopCommand}"
+                        Margin="5 0 10 0" />
+            </StackPanel>
+        </Grid>
+
+        <StatusBar  Grid.Row="5">
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding StatusText}" />
+                    <Border Margin="5,0,5,0"
+                            BorderBrush="#FFD4D4D4"
+                            BorderThickness="1" />
+
+                    <TextBlock Text="{Binding StatusChecked}" />
+                    <Border Margin="5,0,5,0"
+                            BorderBrush="#FFD4D4D4"
+                            BorderThickness="1" />
+
+                    <TextBlock Text="{Binding StatusFile}" />
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>

@@ -5,6 +5,6 @@
         public int First;
         public int Middle;
         public int Last;
-
+        public int Solo;
     }
 }
